@@ -1,0 +1,1119 @@
+$primary-color: #2980b9;
+$primary-hover: #3091d1;
+$success-color: #10b981;
+$success-hover: #059669;
+$danger-color: #ef4444;
+$danger-hover: #dc2626;
+$warning-color: #f59e0b;
+$warning-hover: #d97706;
+
+$bg-primary: #f8fafc;
+$bg-secondary: #ffffff;
+$bg-tertiary: #f1f5f9;
+$bg-danger: #fef2f2;
+
+$text-primary: #1e293b;
+$text-secondary: #64748b;
+$text-muted: #94a3b8;
+$text-white: #ffffff;
+
+$border-color: #e2e8f0;
+$border-light: #f1f5f9;
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+
+$transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Mixins
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: $radius-md;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: $transition;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $primary-color;
+  color: $text-white;
+
+  &:hover:not(:disabled) {
+    background: $primary-hover;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+@mixin button-success {
+  @include button-base;
+  background: $success-color;
+  color: $text-white;
+
+  &:hover:not(:disabled) {
+    background: $success-hover;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+@mixin button-danger {
+  @include button-base;
+  background: $danger-color;
+  color: $text-white;
+
+  &:hover:not(:disabled) {
+    background: $danger-hover;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: $bg-secondary;
+  color: $text-primary;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background: $bg-tertiary;
+    border-color: #e2e8f0;
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+}
+
+@mixin card-base {
+  background: $bg-secondary;
+  border-radius: $radius-lg;
+  border: 1px solid $border-light;
+  box-shadow: $shadow-sm;
+  transition: $transition;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin input-base {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
+  background: $bg-secondary;
+  color: $text-primary;
+  font-size: 14px;
+  line-height: 1.5;
+  transition: $transition;
+  outline: none;
+
+  &::placeholder {
+    color: $text-muted;
+  }
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+
+  &:disabled {
+    background: $bg-tertiary;
+    color: $text-muted;
+    cursor: not-allowed;
+  }
+}
+
+// Main Component Styles
+.group-page {
+  min-height: 100vh;
+  background: $bg-primary;
+  padding: 24px;
+
+  .group-container {
+    // max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+// Header Section
+.page-header {
+  margin-bottom: 32px;
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 20px;
+
+    .title-section {
+      flex: 1;
+
+      .page-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: $text-primary;
+        margin: 0 0 8px 0;
+        line-height: 1.2;
+      }
+
+      .page-subtitle {
+        font-size: 16px;
+        color: $text-secondary;
+        margin: 0;
+        line-height: 1.5;
+      }
+    }
+
+    .create-btn {
+      @include button-primary;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      white-space: nowrap;
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  .search-section {
+    .search-box {
+      position: relative;
+      max-width: 500px;
+
+      .search-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $text-muted;
+        pointer-events: none;
+      }
+
+      .search-input {
+        @include input-base;
+        padding-left: 48px;
+        padding-right: 48px;
+        font-size: 15px;
+
+        &:focus {
+          border-color: $primary-color;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+        }
+      }
+
+      .clear-btn {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: $text-muted;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        transition: $transition;
+
+        &:hover {
+          background: $bg-tertiary;
+          color: $text-secondary;
+        }
+      }
+    }
+
+    .search-info {
+      margin-top: 12px;
+
+      span {
+        color: $text-secondary;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+// Statistics Grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px !important;
+  // margin-bottom: 32px;
+
+  .stat-card {
+    @include card-base;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .stat-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: $radius-lg;
+      background: #2980b9;
+      color: $text-white;
+      flex-shrink: 0;
+
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .stat-content {
+      flex: 1;
+
+      .stat-number {
+        font-size: 28px;
+        font-weight: 700;
+        color: $text-primary;
+        margin: 0 0 4px 0;
+        line-height: 1.2;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        color: $text-secondary;
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+
+    &:nth-child(2) .stat-icon {
+      background: #10b981;
+    }
+
+    &:nth-child(3) .stat-icon {
+      background: #f59e0b;
+    }
+
+    &:nth-child(4) .stat-icon {
+      background: linear-gradient(135deg, #8b5cf6, #8b5cf6);
+    }
+  }
+}
+
+// Groups Grid
+.groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 24px;
+  padding: 0 !important;
+
+  .group-card {
+    @include card-base;
+    display: flex;
+    flex-direction: column;
+    transition: $transition-slow;
+
+    .card-header {
+      padding: 10px 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+
+      .group-title {
+        flex: 1;
+
+        .group-name {
+          margin: 0 0 8px 0;
+
+          a {
+            color: $text-primary;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.3;
+            transition: $transition;
+
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+
+        .status-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 4px 12px;
+          border-radius: 20px;
+          font-size: 12px;
+          font-weight: 500;
+
+          &.active {
+            background: rgba($success-color, 0.1);
+            color: $success-color;
+
+            .status-dot {
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              background: $success-color;
+            }
+          }
+        }
+      }
+
+      .card-actions {
+        display: flex;
+        gap: 8px;
+
+        .action-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 36px;
+          height: 36px;
+          border: none;
+          border-radius: $radius-md;
+          cursor: pointer;
+          transition: $transition;
+
+          &.edit {
+            background: rgba($primary-color, 0.1);
+            color: $primary-color;
+
+            &:hover {
+              background: rgba($primary-color, 0.2);
+              transform: scale(1.05);
+            }
+          }
+
+          &.delete {
+            background: rgba($danger-color, 0.1);
+            color: $danger-color;
+
+            &:hover {
+              background: rgba($danger-color, 0.2);
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+    }
+
+    .card-body {
+      // padding: 0 20px;
+      flex: 1;
+
+      .info-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 12px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .info-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+          color: $text-secondary;
+          flex: 1;
+          min-width: 200px;
+
+          svg {
+            width: 16px;
+            height: 16px;
+            color: $text-muted;
+            flex-shrink: 0;
+          }
+
+          strong {
+            color: $text-primary;
+            font-weight: 600;
+          }
+
+          &.price {
+            color: $success-color;
+            font-weight: 600;
+
+            strong {
+              color: $success-color;
+            }
+
+            svg {
+              color: $success-color;
+            }
+          }
+        }
+      }
+    }
+
+    .card-footer {
+      padding: 16px 0 20px;
+      border-top: 1px solid $border-light;
+      margin-top: 16px;
+
+      .view-btn {
+        @include button-secondary;
+        width: 100%;
+        padding: 10px 16px;
+        justify-content: center;
+        font-weight: 500;
+
+        svg {
+          transition: transform 0.2s ease;
+        }
+      }
+    }
+  }
+}
+
+// Empty State
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+
+  .empty-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(
+      135deg,
+      rgba($primary-color, 0.1),
+      rgba($primary-color, 0.05)
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    svg {
+      width: 40px;
+      height: 40px;
+      color: $primary-color;
+    }
+  }
+
+  .empty-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 12px 0;
+  }
+
+  .empty-message {
+    font-size: 16px;
+    color: $text-secondary;
+    margin: 0 0 32px 0;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .clear-search-btn,
+  .create-first-btn {
+    @include button-primary;
+    padding: 12px 24px;
+    font-size: 15px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .clear-search-btn {
+    @include button-secondary;
+  }
+}
+
+// Modal Styles
+.group-modal {
+  background: $bg-secondary;
+  border-radius: $radius-xl;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .modal-header {
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+    border-bottom: none;
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: $text-primary;
+      text-align: center;
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: $radius-md;
+      color: $text-muted;
+      transition: $transition;
+
+      &:hover {
+        background: $bg-tertiary;
+        color: $text-secondary;
+      }
+    }
+  }
+
+  .modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 24px 10px;
+
+    .group-form {
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+
+        .form-label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          color: $text-primary;
+          // margin-bottom: 8px;
+
+          svg {
+            width: 16px;
+            height: 16px;
+            color: $primary-color;
+          }
+        }
+
+        .form-input,
+        .form-select {
+          @include input-base;
+        }
+
+        .form-select {
+          cursor: pointer;
+
+          option {
+            padding: 8px;
+          }
+        }
+      }
+
+      .days-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 6px;
+        // margin-top: 8px;
+
+        .day-checkbox {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          padding: 6px 8px;
+          margin: 0px;
+          border: 1px solid $border-color;
+          border-radius: $radius-md;
+          cursor: pointer;
+          transition: $transition;
+          background: $bg-secondary;
+
+          &:hover {
+            background: $bg-tertiary;
+            border-color: $primary-color;
+          }
+
+          input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: $primary-color;
+            cursor: pointer;
+          }
+
+          .checkbox-label {
+            font-size: 14px;
+            color: $text-primary;
+            cursor: pointer;
+            user-select: none;
+          }
+
+          &:has(input:checked) {
+            background: rgba($primary-color, 0.05);
+            border-color: $primary-color;
+
+            .checkbox-label {
+              color: $primary-color;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        // margin-top: 32px;
+        // padding-top: 10px;
+        border-top: 1px solid $border-light;
+
+        .btn-cancel {
+          @include button-secondary;
+          padding: 8px 16px;
+        }
+
+        .btn-submit {
+          @include button-primary;
+          padding: 8px 16px;
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .groups-grid {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .group-page {
+    padding: 16px;
+  }
+
+  .page-header {
+    .header-top {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+
+      .title-section {
+        .page-title {
+          font-size: 28px;
+        }
+      }
+
+      .create-btn {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .groups-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .group-modal {
+    .modal-body {
+      .group-form {
+        .form-row {
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .form-group {
+          margin-bottom: 0;
+
+          .form-label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 500;
+
+            svg {
+              width: 12px;
+              height: 12px;
+            }
+          }
+
+          .form-input,
+          .form-select {
+            font-size: 12px;
+            padding: 5px 10px;
+          }
+
+          .form-select {
+            cursor: pointer;
+
+            option {
+              padding: 8px;
+            }
+          }
+        }
+        .days-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 5px;
+          margin-top: 10px;
+
+          .day-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 5px 10px;
+            border: 1px solid $border-color;
+            border-radius: $radius-md;
+            cursor: pointer;
+            transition: $transition;
+            background: $bg-secondary;
+
+            &:hover {
+              background: $bg-tertiary;
+              border-color: $primary-color;
+            }
+
+            input[type="checkbox"] {
+              width: 16px;
+              height: 16px;
+              accent-color: $primary-color;
+              cursor: pointer;
+            }
+
+            .checkbox-label {
+              font-size: 14px;
+              color: $text-primary;
+              cursor: pointer;
+              user-select: none;
+            }
+
+            &:has(input:checked) {
+              background: rgba($primary-color, 0.05);
+              border-color: $primary-color;
+
+              .checkbox-label {
+                color: $primary-color;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+
+        .form-actions {
+          gap: 8px;
+          .btn-cancel {
+            padding: 5px 10px;
+          }
+
+          .btn-submit {
+            @include button-primary;
+            padding: 5px 10px;
+
+            svg {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header {
+    .title-section {
+      .page-title {
+        font-size: 24px;
+      }
+
+      .page-subtitle {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .stat-card {
+    .stat-content {
+      .stat-number {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .group-card {
+    .card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+
+      .card-actions {
+        align-self: flex-end;
+      }
+    }
+
+    .card-body {
+      .info-row {
+        flex-direction: column;
+        gap: 8px;
+
+        .info-item {
+          min-width: auto;
+        }
+      }
+    }
+  }
+
+  .group-modal {
+    .modal-body {
+      padding: 0 !important;
+      .group-form {
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .form-group {
+          margin-bottom: 0;
+
+          .form-label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 500;
+
+            svg {
+              width: 12px;
+              height: 12px;
+            }
+          }
+
+          .form-input,
+          .form-select {
+            font-size: 12px;
+            padding: 5px 10px;
+          }
+
+          .form-select {
+            cursor: pointer;
+
+            option {
+              padding: 8px;
+            }
+          }
+        }
+        .days-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 5px;
+          margin-top: 10px;
+
+          .day-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 5px 10px;
+            border: 1px solid $border-color;
+            border-radius: $radius-md;
+            cursor: pointer;
+            transition: $transition;
+            background: $bg-secondary;
+
+            &:hover {
+              background: $bg-tertiary;
+              border-color: $primary-color;
+            }
+
+            input[type="checkbox"] {
+              width: 16px;
+              height: 16px;
+              accent-color: $primary-color;
+              cursor: pointer;
+            }
+
+            .checkbox-label {
+              font-size: 14px;
+              color: $text-primary;
+              cursor: pointer;
+              user-select: none;
+            }
+
+            &:has(input:checked) {
+              background: rgba($primary-color, 0.05);
+              border-color: $primary-color;
+
+              .checkbox-label {
+                color: $primary-color;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+
+        .form-actions {
+          gap: 8px;
+          .btn-cancel {
+            padding: 5px 10px;
+          }
+
+          .btn-submit {
+            @include button-primary;
+            padding: 5px 10px;
+
+            svg {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animation Classes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.group-card {
+  animation: fadeIn 0.5s ease-out;
+
+  &:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  &:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  &:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+  &:nth-child(6) {
+    animation-delay: 0.6s;
+  }
+}
+
+.stat-card {
+  animation: slideIn 0.5s ease-out;
+
+  &:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  &:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+}
+
+// Loading States
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba($text-white, 0.3);
+  border-radius: 50%;
+  border-top-color: $text-white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Focus Styles for Accessibility
+.group-card:focus-within {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+.action-btn:focus,
+.view-btn:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}

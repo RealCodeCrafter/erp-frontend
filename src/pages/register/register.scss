@@ -1,0 +1,81 @@
+.register {
+  background: url(../../assets/image/bg.png);
+  background-color: #4880ff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  &__form {
+    background-color: white;
+    width: 400px;
+    padding: 30px 25px;
+    border-radius: 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-family: Nunito Sans;
+      font-size: 15px;
+      line-height: 24.55px;
+      letter-spacing: -0.06428570300340652px;
+      text-align: left;
+    }
+    button,
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      background-color: #f1f4f9;
+      border: 1px solid #d8d8d8;
+      outline: none;
+    }
+
+    button {
+      background-color: #4880ff;
+      color: white;
+      margin-top: 10px;
+    }
+
+    &__title {
+      font-family: Nunito Sans;
+      font-size: 26px;
+      line-height: 43.65px;
+      letter-spacing: -0.11428570002317429px;
+      text-align: center;
+    }
+
+    &__text {
+      font-family: Nunito Sans;
+      font-size: 15px;
+      line-height: 24.55px;
+      letter-spacing: -0.06428570300340652px;
+      text-align: center;
+    }
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        color: gray;
+      }
+    }
+
+    &__check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    &__check-link {
+      color: #4880ff;
+      padding-left: 10px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.form__expens {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  button,
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #aaa2;
+    border: none;
+    outline: none;
+  }
+
+  button {
+    background-color: #4880ff;
+    color: white;
+  }
+}

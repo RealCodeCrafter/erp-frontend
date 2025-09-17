@@ -1,0 +1,102 @@
+.student-rating {
+  padding: 20px;
+
+  .table-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+  }
+}
+
+.table-container {
+  max-height: 600px; /* Scroll bo‘lishi uchun balandlik */
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+}
+
+.rating-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+
+  thead {
+    background: #2980b9;
+    position: sticky;
+    top: 0; /* Tepaga yopish */
+    z-index: 5;
+
+    th {
+      padding: 20px 15px;
+      text-align: left;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #ddd;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background-color: #f7faff;
+      }
+    }
+
+    td {
+      padding: 12px 15px;
+      font-size: 14px;
+      color: #333;
+
+      &:first-child {
+        text-align: center;
+        font-weight: 600;
+        color: #4cafef;
+      }
+    }
+  }
+}
+
+/* Responsive mobil */
+@media (max-width: 768px) {
+  .rating-table {
+    thead {
+      display: none;
+    }
+    tbody,
+    tr,
+    td {
+      display: block;
+      width: 100%;
+    }
+    tr {
+      margin-bottom: 15px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+    td {
+      text-align: right;
+      padding: 8px 10px;
+      position: relative;
+
+      &::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        font-weight: bold;
+        color: #666;
+      }
+    }
+  }
+}

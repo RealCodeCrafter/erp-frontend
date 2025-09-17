@@ -1,0 +1,686 @@
+// Variables
+$primary-blue: #2980b9;
+$primary-blue-hover: #2563eb;
+$success-green: #10b981;
+$success-green-hover: #059669;
+$danger-red: #ef4444;
+$danger-red-hover: #dc2626;
+$warning-yellow: #f59e0b;
+$warning-yellow-hover: #d97706;
+
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+
+$white: #ffffff;
+$black: #000000;
+
+$border-radius: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-full: 9999px;
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+$transition: all 0.3s ease;
+$transition-fast: all 0.2s ease;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin card-base {
+  background: $white;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-sm;
+  border: 1px solid $gray-100;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: $border-radius;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: $transition-fast;
+  border: none;
+  outline: none;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Main Container
+.davomat-container {
+  min-height: 100vh;
+  background: white;
+  padding: 24px;
+
+  @media (max-width: 768px) {
+    padding: 16px;
+  }
+}
+
+.davomat-wrapper {
+  margin: 0 auto;
+}
+
+// Header Section
+.header-section {
+  margin-bottom: 32px;
+
+  .main-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: $gray-800;
+    margin-bottom: 8px;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
+  }
+
+  .main-subtitle {
+    color: $gray-600;
+    font-size: 16px;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}
+
+// Stats Grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.stat-card {
+  @include card-base;
+  padding: 24px;
+
+  .stat-content {
+    @include flex-between;
+  }
+
+  .stat-info {
+    .stat-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: $gray-600;
+      margin: 0 0 8px 0;
+    }
+
+    .stat-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: $gray-900;
+      margin: 0;
+
+      &.stat-value-green {
+        color: $success-green;
+      }
+
+      &.stat-value-red {
+        color: $danger-red;
+      }
+
+      &.stat-value-yellow {
+        color: $warning-yellow;
+      }
+    }
+  }
+
+  .stat-icon {
+    width: 32px;
+    height: 32px;
+
+    &.stat-icon-blue {
+      color: $primary-blue;
+    }
+
+    &.stat-icon-green {
+      color: $success-green;
+    }
+
+    &.stat-icon-red {
+      color: $danger-red;
+    }
+
+    &.stat-icon-yellow {
+      color: $warning-yellow;
+    }
+  }
+}
+
+// Filters Panel
+.filters-panel {
+  @include card-base;
+  padding: 24px;
+  margin-bottom: 24px;
+
+  .filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .filter-group {
+    .input-wrapper {
+      position: relative;
+
+      .input-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        color: $gray-400;
+        z-index: 1;
+      }
+    }
+
+    .search-input,
+    .filter-select,
+    .date-input {
+      width: 100%;
+      padding: 8px 16px 8px 40px;
+      border: 1px solid $gray-200;
+      border-radius: $border-radius;
+      font-size: 14px;
+      background: $white;
+      transition: $transition-fast;
+      outline: none;
+
+      &:focus {
+        border-color: $primary-blue;
+        box-shadow: 0 0 0 3px rgba($primary-blue, 0.1);
+      }
+
+      &::placeholder {
+        color: $gray-400;
+      }
+    }
+
+    .filter-select {
+      appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="m0 0 2 2 2-2z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 12px;
+      padding-right: 40px;
+    }
+  }
+
+  .export-btn {
+    @include button-base;
+    background: $primary-blue;
+    color: $white;
+    gap: 8px;
+    white-space: nowrap;
+
+    &:hover {
+      background: $primary-blue-hover;
+    }
+
+    .btn-icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Table Container
+.table-container {
+  @include card-base;
+  overflow: hidden;
+
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    .table-head {
+      background: $gray-50;
+      border-bottom: 1px solid $gray-200;
+
+      .table-header {
+        padding: 16px 24px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 500;
+        color: $gray-500;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    .table-body {
+      .table-row {
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: $gray-50;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid $gray-200;
+        }
+      }
+
+      .table-cell {
+        padding: 16px 24px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .student-info {
+    @include flex-start;
+    gap: 16px;
+
+    .student-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: $border-radius-full;
+      background: #2980b9;
+      @include flex-center;
+
+      .avatar-text {
+        color: $white;
+        font-weight: 500;
+        font-size: 14px;
+      }
+    }
+
+    .student-details {
+      .student-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: $gray-900;
+        margin-bottom: 2px;
+      }
+
+      .student-id {
+        font-size: 12px;
+        color: $gray-500;
+      }
+    }
+  }
+
+  .class-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: rgba($primary-blue, 0.1);
+    color: $primary-blue;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: $border-radius-full;
+  }
+
+  .group-text {
+    font-size: 14px;
+    color: $gray-900;
+  }
+
+  .status-indicator {
+    @include flex-start;
+    gap: 8px;
+
+    .status-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .status-text {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    &.status-present {
+
+      .status-icon,
+      .status-text {
+        color: $success-green;
+      }
+    }
+
+    &.status-absent {
+
+      .status-icon,
+      .status-text {
+        color: $danger-red;
+      }
+    }
+
+    &.status-late {
+
+      .status-icon,
+      .status-text {
+        color: $warning-yellow;
+      }
+    }
+  }
+
+  .action-buttons {
+    @include flex-start;
+    gap: 8px;
+
+    .action-btn {
+      padding: 8px;
+      border-radius: $border-radius;
+      transition: $transition-fast;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+
+      .action-icon {
+        width: 16px;
+        height: 16px;
+      }
+
+      &.action-btn-green {
+        color: $gray-500;
+
+        &:hover {
+          background: rgba($success-green, 0.1);
+          color: $success-green;
+        }
+      }
+
+      &.action-btn-active-green {
+        background: rgba($success-green, 0.1);
+        color: $success-green;
+      }
+
+      &.action-btn-red {
+        color: $gray-500;
+
+        &:hover {
+          background: rgba($danger-red, 0.1);
+          color: $danger-red;
+        }
+      }
+
+      &.action-btn-active-red {
+        background: rgba($danger-red, 0.1);
+        color: $danger-red;
+      }
+
+      &.action-btn-yellow {
+        color: $gray-500;
+
+        &:hover {
+          background: rgba($warning-yellow, 0.1);
+          color: $warning-yellow;
+        }
+      }
+
+      &.action-btn-active-yellow {
+        background: rgba($warning-yellow, 0.1);
+        color: $warning-yellow;
+      }
+
+      &.action-btn-gray {
+        color: $gray-500;
+
+        &:hover {
+          background: $gray-100;
+          color: $gray-700;
+        }
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 48px 24px;
+
+    .empty-icon {
+      width: 48px;
+      height: 48px;
+      color: $gray-400;
+      margin: 0 auto 16px;
+    }
+
+    .empty-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: $gray-900;
+      margin: 0 0 8px 0;
+    }
+
+    .empty-description {
+      color: $gray-500;
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+}
+
+// Save Section
+.save-section {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+
+  .save-btn {
+    @include button-base;
+    background: $success-green;
+    color: $white;
+    padding: 12px 24px;
+    font-weight: 600;
+
+    &:hover {
+      background: $success-green-hover;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .filters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .davomat-container {
+    padding: 12px;
+  }
+
+  .students-header {
+    padding: 10px !important;
+    gap: 6px;
+  }
+
+  .student-row {
+    padding: 10px !important;
+  }
+
+  .attendance-options {
+    display: grid;
+    grid-auto-columns: 1fr;
+  }
+
+  .filters-panel,
+  .table-container {
+    padding: 16px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    gap: 12px;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    align-items: center;
+    span {
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+  }
+
+  .attendance-table {
+    font-size: 12px;
+
+    .table-header,
+    .table-cell {
+      padding: 12px 16px;
+    }
+  }
+
+  .student-info {
+    gap: 12px;
+    margin-bottom: 0px !important;
+
+    .student-avatar {
+      width: 32px;
+      height: 32px;
+
+      .avatar-text {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .action-buttons {
+    gap: 4px;
+
+    .action-btn {
+      padding: 6px;
+
+      .action-icon {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header-section {
+    margin-bottom: 24px;
+  }
+
+  .attendance-form {
+    padding: 15px 0px;
+  }
+
+  .header-cell {
+    &:nth-child(2) {
+      display: none !important;
+    }
+  }
+
+  .student-name {
+    margin-bottom: 0px !important;
+  }
+
+  .btn {
+    font-size: 12px !important;
+  }
+
+  .modal-header h3 {
+    font-size: 18px !important;
+  }
+
+  .stats-grid {
+    margin-bottom: 24px;
+  }
+
+  .table-wrapper {
+    margin: -16px;
+    padding: 16px;
+  }
+
+  .save-section {
+    .save-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// Print Styles
+@media print {
+  .davomat-container {
+    background: $white;
+    padding: 0;
+  }
+
+  .filters-panel,
+  .save-section {
+    display: none;
+  }
+
+  .action-buttons {
+    display: none;
+  }
+}
+
+.students-header .header-cell {
+  justify-content: center !important;
+}

@@ -1,0 +1,234 @@
+.teacher-detail-container {
+  .content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 2rem;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .teacher-info {
+    .teacher-card {
+      background: white;
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #2980b9;
+      }
+
+      .teacher-avatar {
+        width: 120px;
+        height: 120px;
+        background: #2980b9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: -3px;
+          background: #2980b9;
+          border-radius: 50%;
+          z-index: -1;
+          opacity: 0.3;
+        }
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 1rem;
+      }
+
+      .teacher-subject {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: #f0f9ff;
+        padding: 10px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+
+        .icon {
+          color: #0284c7;
+        }
+
+        span {
+          font-weight: 600;
+          color: #0284c7;
+        }
+      }
+
+      .contact-info {
+        margin-bottom: 10px;
+        gap: 5px !important;
+        margin-top: 20px !important;
+
+        .info-item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem;
+          margin-bottom: 0.5rem;
+          background: #f8fafc;
+          border-radius: 12px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: #f1f5f9;
+            transform: translateX(5px);
+          }
+
+          .icon {
+            width: 20px;
+            height: 20px;
+            color: #64748b;
+          }
+
+          span {
+            font-weight: 500;
+            color: #334155;
+          }
+        }
+      }
+
+      .teacher-details {
+        gap: 20px;
+      }
+    }
+  }
+
+  .groups-info {
+    .groups-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1a202c;
+        margin: 0;
+      }
+
+      .groups-count {
+        background: #2980b9;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+    }
+
+    .groups-list {
+      background: white;
+      border-radius: 0 0 20px 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+      .group-card {
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background: #f8fafc;
+          transform: translateX(5px);
+        }
+
+        .group-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1rem;
+
+          h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin: 0;
+          }
+
+          .subject-tag {
+            background: #2980b9;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+          }
+        }
+
+        .group-details {
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+
+          .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+
+            .icon {
+              width: 18px;
+              height: 18px;
+              color: #64748b;
+            }
+
+            span {
+              color: #475569;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .content {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+
+    .header {
+      padding: 1rem;
+
+      h1 {
+        font-size: 1.25rem;
+      }
+    }
+
+    .additional-info {
+      grid-template-columns: 1fr !important;
+    }
+  }
+}

@@ -1,0 +1,170 @@
+.ranking-container {
+  padding: 20px;
+  background: transparent;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  scrollbar-width: none; 
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .app-section {
+    max-width: 1150px;
+  }
+
+  .ranking-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .ranking-tab {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #2980b9;
+      font-weight: bold;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+
+      &.active {
+        background-color: #2980b9;
+        color: white;
+      }
+
+      &:hover:not(.active) {
+        background-color: #dce9f3;
+      }
+    }
+  }
+
+  .ranking-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .save-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #2573a6;
+    }
+  }
+
+  .ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+
+    th {
+      background-color: #2980b9;
+      color: white;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    td {
+      text-align: start;
+      padding: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .sticky-col .student-name {
+      width: 200px !important;
+      font-weight: bold;
+      color: #34495e;
+
+    }
+
+    .grade-input {
+      width: 50px;
+      height: 40px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: #2980b9;
+      }
+    }
+  }
+
+  select {
+    outline: none;
+    border: 2px solid #2980b9;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 2px;
+    width: 150px;
+    background: #2980b9;
+  }
+
+  option {
+    background: whitesmoke;
+    color: #2980b9;
+  }
+
+  .students-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f1f5fa;
+      border: 1px solid #dce3ec;
+      border-radius: 5px;
+    }
+  }
+}
+
+.sticky-col {
+  position: sticky;
+  left: 36px;
+  z-index: 2;
+  background-color: white;
+  min-width: 200px;
+}
+
+.sticky-n {
+  position: sticky;
+  left: 0px;
+  z-index: 2;
+  background-color: white;
+}
+
+.student-name {
+  span {
+    width: 300px;
+  }
+}
+
+/* Chrome, Safari, Edge */
+.ranking-table-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+.ranking-table-wrapper {
+  scrollbar-width: none; /* Scrollni yashirish */
+}
+
+/* IE va eski Edge */
+.ranking-table-wrapper {
+  -ms-overflow-style: none;
+}

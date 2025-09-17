@@ -1,0 +1,78 @@
+.createTeacher {
+  max-width: 600px !important;
+  font-family: Arial, sans-serif;
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+
+    @media (max-width:768px) {
+        font-size: 18px !important;
+        margin-bottom: 6px;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #34495e;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      input {
+        padding: 12px 15px;
+        font-size: 14px;
+        color: #2c3e50;
+        border: 1px solid #dcdfe3;
+        border-radius: 8px;
+        background: #f9fafe;
+        transition: all 0.3s ease;
+
+        &:focus {
+          border-color: #2980b9;
+          outline: none;
+        }
+
+        @media (max-width:768px) {
+          padding: 10px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      background: #2980b9;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+
+      @media (max-width:768px) {
+        padding: 10px !important;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+
+.react-tel-input .form-control {
+  padding: 20px 45px !important;
+
+  @media (max-width:768px) {
+    padding: 12px 45px !important;
+  }
+}

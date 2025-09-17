@@ -1,0 +1,434 @@
+// .products__top {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 16px;
+//   gap: 10px;
+
+//   button {
+//     border: none;
+//     background-color: transparent;
+//     font-size: 25px;
+//     width: 30px;
+//     cursor: pointer;
+//   }
+
+//   /* Left Section Styles */
+//   &__left {
+//     display: flex;
+//     align-items: center;
+//     gap: 20px;
+//     button {
+//       display: flex;
+//       align-items: center;
+//     }
+//   }
+
+//   &__left-form {
+//     display: flex;
+//     align-items: center;
+//     gap: 3px;
+//     background-color: #f5f6fa;
+//     border: 1px solid #aaa4;
+//     width: 500px;
+//     height: 38px;
+//     opacity: 0px;
+//     padding: 0px 10px;
+//     border-radius: 18px;
+
+//     input {
+//       padding: 6px 10px;
+//       width: 100%;
+//       outline: none;
+//       border: none;
+//       background-color: transparent;
+//     }
+
+//     svg {
+//       font-size: 20px;
+//     }
+
+//     @media (max-width: 700px) {
+//       width: 100%;
+//     }
+//   }
+
+//   /* Right Section Styles */
+//   &__right {
+//     display: flex;
+//     align-items: center;
+//     gap: 15px;
+
+//     img {
+//       width: 50px;
+//     }
+
+//     svg {
+//       color: #2980b9;
+//       font-size: 24px;
+//     }
+
+//     &__custom-select {
+//       position: relative;
+//       display: inline-block;
+//       width: 120px;
+
+//       select {
+//         width: 100%;
+//         padding: 6px 10px;
+//         font-size: 16px;
+//         font-weight: bold;
+//         border: 2px solid #2980b9;
+//         border-radius: 8px;
+//         background-color: #f9f9f9;
+//         color: #333;
+//         outline: none;
+//         appearance: none;
+//         cursor: pointer;
+//         transition: all 0.3s ease;
+//       }
+
+//       option {
+//         background: #ffffff;
+//         color: #333;
+//         padding: 10px;
+//       }
+
+//       &::after {
+//         content: "▼";
+//         position: absolute;
+//         right: 15px;
+//         top: 50%;
+//         transform: translateY(-50%);
+//         font-size: 12px;
+//         color: #2980b9;
+//         pointer-events: none;
+//       }
+//     }
+
+//     &__title {
+//       font-size: 20px;
+//     }
+
+//     @media (max-width: 450px) {
+//       select {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// .custom-dropdown {
+//   width: 140px;
+//   position: relative;
+//   display: inline-block;
+
+//   .custom-dropdown-selected {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+//     cursor: pointer;
+//     padding: 8px;
+//     border: 1px solid #ccc;
+//     border-radius: 4px;
+
+//     .lang-icon {
+//       width: 20px;
+//       height: 20px;
+//     }
+//   }
+
+//   .custom-dropdown-options {
+//     display: none;
+//     position: absolute;
+//     top: 100%;
+//     left: 0;
+//     background-color: #fff;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+//     z-index: 1000;
+//     width: 100%;
+//     border-radius: 4px;
+
+//     &.show {
+//       display: block;
+//     }
+
+//     .custom-dropdown-option {
+//       display: flex;
+//       align-items: center;
+//       gap: 8px;
+//       padding: 8px;
+//       cursor: pointer;
+
+//       &:hover {
+//         background-color: #f0f0f0;
+//       }
+
+//       .lang-icon {
+//         width: 20px;
+//         height: 20px;
+//       }
+//     }
+//   }
+// }
+
+.products__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  gap: 10px;
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: 25px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  /* Left Section Styles */
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+    button {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__left-form {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background-color: #f5f6fa;
+    border: 1px solid #aaa4;
+    width: 500px;
+    height: 38px;
+    opacity: 0px;
+    padding: 0px 10px;
+    border-radius: 18px;
+
+    input {
+      padding: 6px 10px;
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: transparent;
+    }
+
+    svg {
+      font-size: 20px;
+    }
+
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+  }
+
+  /* Right Section Styles */
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    img {
+      width: 50px;
+    }
+
+    svg {
+      color: #2980b9;
+      font-size: 24px;
+    }
+
+    &__custom-select {
+      position: relative;
+      display: inline-block;
+      width: 120px;
+
+      select {
+        width: 100%;
+        padding: 6px 10px;
+        font-size: 16px;
+        font-weight: bold;
+        border: 2px solid #2980b9;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        color: #333;
+        outline: none;
+        appearance: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      option {
+        background: #ffffff;
+        color: #333;
+        padding: 10px;
+      }
+
+      &::after {
+        content: "▼";
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 12px;
+        color: #2980b9;
+        pointer-events: none;
+      }
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    @media (max-width: 450px) {
+      select {
+        display: none;
+      }
+    }
+  }
+}
+
+// Mobile hamburger menu styles
+.menu__hamburger {
+  display: none !important;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  padding: 8px;
+  width: auto !important;
+
+  @media (max-width: 768px) {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover {
+    color: #2980b9;
+  }
+
+  svg {
+    font-size: 24px;
+  }
+}
+
+// Desktop toggle button
+.menu__desktop-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    display: none !important;
+  }
+
+  &:hover {
+    color: #2980b9;
+  }
+}
+
+.custom-dropdown {
+  width: 140px;
+  position: relative;
+  display: inline-block;
+
+  .custom-dropdown-selected {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    .lang-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    // Hide text on small screens
+    @media (max-width: 480px) {
+      span {
+        display: none;
+      }
+      padding: 4px;
+    }
+  }
+
+  .custom-dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 100%;
+    border-radius: 4px;
+
+    &.show {
+      display: block;
+    }
+
+    .custom-dropdown-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+
+      .lang-icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      // Hide text in dropdown on small screens
+      @media (max-width: 480px) {
+        justify-content: center;
+        
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // Make dropdown smaller on mobile
+  @media (max-width: 480px) {
+    width: auto;
+    min-width: 40px;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .products__top {
+    padding: 12px 16px;
+    
+    &__right {
+      gap: 10px;
+      
+      svg {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .products__top {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+}

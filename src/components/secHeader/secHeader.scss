@@ -1,0 +1,55 @@
+.sec-header {
+  padding: 20px;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; // ✅ kichik ekranlarda elementlar pastga tushadi
+    gap: 10px;
+  }
+
+  &-title {
+    font-size: 32px;
+    font-weight: 600;
+  }
+}
+
+// 📱 768px dan kichik (planshet)
+@media (max-width: 768px) {
+  .sec-header {
+    padding: 15px;
+
+    &-title {
+      font-size: 24px;
+    }
+  }
+}
+
+// 📱 480px dan kichik (telefon)
+@media (max-width: 480px) {
+  .sec-header {
+    padding: 10px;
+
+    &-top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &-title {
+      font-size: 20px;
+      text-align: left;
+    }
+  }
+}
+
+// 📱 320px dan kichik (eng kichik ekranlar)
+@media (max-width: 320px) {
+  .sec-header {
+    padding: 8px;
+
+    &-title {
+      font-size: 18px;
+    }
+  }
+}
